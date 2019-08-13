@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 09, 2019 at 04:55 PM
+-- Generation Time: Aug 13, 2019 at 12:23 PM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.5
 
@@ -226,7 +226,7 @@ CREATE TABLE `santri` (
   `tgl_masuk` date NOT NULL,
   `id_admin` int(11) NOT NULL,
   `id_pengurus_pengajar` int(11) NOT NULL,
-  `nama_gedung` varchar(255) NOT NULL
+  `nama_gedung` enum('Aula Putra','Aula Putri') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
