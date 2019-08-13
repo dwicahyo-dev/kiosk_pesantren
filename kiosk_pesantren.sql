@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 13, 2019 at 12:23 PM
+-- Generation Time: Aug 13, 2019 at 01:34 PM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.5
 
@@ -86,6 +86,7 @@ CREATE TABLE `galeri` (
 
 CREATE TABLE `gedung` (
   `id_gedung` int(11) NOT NULL,
+  `id_admin` int(11) NOT NULL,
   `nama_gedung` varchar(255) NOT NULL,
   `foto_gedung` varchar(255) NOT NULL,
   `keterangan` text NOT NULL
@@ -95,16 +96,16 @@ CREATE TABLE `gedung` (
 -- Dumping data for table `gedung`
 --
 
-INSERT INTO `gedung` (`id_gedung`, `nama_gedung`, `foto_gedung`, `keterangan`) VALUES
-(9, 'Gerbang Utama Putra', 'Gerbang_Putra.png', 'Gerbang Putra Berada Didepan Masjid Sebelah kiri'),
-(10, 'gerbang Utama Putri', 'banner10.jpg', 'Gerbang Utama Putri Berada Di Sebelah Kanan Masjid'),
-(11, 'Masjid', 'masjid.jpg', 'Masjid Terletak Di Belakang Gerbang Putra'),
-(12, 'Aula Putra', 'aula_pp.jpg', 'aula putra berada di lantai 2'),
-(13, 'aula putri', 'aula.jpg', 'aula putri berada di lantai 2 sebelah kanan'),
-(14, 'kantor', 'aula_putra.jpg', 'berada di samping dhalem pa kyai'),
-(15, 'tempat belajar kitab', 'TempatBelajar_kitab.jpg', 'Tempat belajar al-khitab para santri'),
-(16, 'koperasi', 'koprasi.jpg', 'berada di belakang masjid'),
-(17, 'Dhalem Pak Kyai', '20171029_090847.jpg', 'berada di samping masjid');
+INSERT INTO `gedung` (`id_gedung`, `id_admin`, `nama_gedung`, `foto_gedung`, `keterangan`) VALUES
+(9, 2, 'Gerbang Utama Putra', 'Gerbang_Putra.png', 'Gerbang Putra Berada Didepan Masjid Sebelah kiri'),
+(10, 2, 'gerbang Utama Putri', 'banner10.jpg', 'Gerbang Utama Putri Berada Di Sebelah Kanan Masjid'),
+(11, 2, 'Masjid', 'masjid.jpg', 'Masjid Terletak Di Belakang Gerbang Putra'),
+(12, 2, 'Aula Putra', 'aula_pp.jpg', 'aula putra berada di lantai 2'),
+(13, 2, 'aula putri', 'aula.jpg', 'aula putri berada di lantai 2 sebelah kanan'),
+(14, 2, 'kantor', 'aula_putra.jpg', 'berada di samping dhalem pa kyai'),
+(15, 2, 'tempat belajar kitab', 'TempatBelajar_kitab.jpg', 'Tempat belajar al-khitab para santri'),
+(16, 2, 'koperasi', 'koprasi.jpg', 'berada di belakang masjid'),
+(17, 2, 'Dhalem Pak Kyai', '20171029_090847.jpg', 'berada di samping masjid');
 
 -- --------------------------------------------------------
 
@@ -264,7 +265,8 @@ ALTER TABLE `galeri`
 -- Indexes for table `gedung`
 --
 ALTER TABLE `gedung`
-  ADD PRIMARY KEY (`id_gedung`);
+  ADD PRIMARY KEY (`id_gedung`),
+  ADD KEY `id_admin` (`id_admin`);
 
 --
 -- Indexes for table `jabatan_pengurus`
@@ -327,7 +329,7 @@ ALTER TABLE `galeri`
 -- AUTO_INCREMENT for table `gedung`
 --
 ALTER TABLE `gedung`
-  MODIFY `id_gedung` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_gedung` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `jabatan_pengurus`
@@ -374,6 +376,12 @@ ALTER TABLE `animasi`
 --
 ALTER TABLE `galeri`
   ADD CONSTRAINT `galeri_ibfk_1` FOREIGN KEY (`id_admin`) REFERENCES `admin` (`id_admin`);
+
+--
+-- Constraints for table `gedung`
+--
+ALTER TABLE `gedung`
+  ADD CONSTRAINT `gedung_ibfk_1` FOREIGN KEY (`id_admin`) REFERENCES `admin` (`id_admin`);
 
 --
 -- Constraints for table `kegiatan`

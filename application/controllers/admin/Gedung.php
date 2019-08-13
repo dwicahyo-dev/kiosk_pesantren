@@ -78,6 +78,7 @@ class Gedung extends CI_Controller
 					'nama_gedung' => $this->input->post('nama_gedung'),
 					'foto_gedung' => $upload['file_name'],
 					'keterangan' => $this->input->post('keterangan'),
+                    'id_admin' => $this->session->admin_id,
 				];
 
 				if ($this->Gedung_model->insert_gedung($data)) {

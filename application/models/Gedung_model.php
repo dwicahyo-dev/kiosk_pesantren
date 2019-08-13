@@ -11,6 +11,7 @@ class Gedung_model extends CI_Model {
 	public function get_gedung()
 	{
 		return $this->db->from($this->table)
+						->join('admin', 'admin.id_admin = gedung.id_admin')
                         ->get()->result();
 	}
 
@@ -33,6 +34,7 @@ class Gedung_model extends CI_Model {
 	{
 		return $this->db->from($this->table)
 						->where('id_gedung', $id_gedung)
+						->join('admin', 'admin.id_admin = gedung.id_admin')
                         ->get()->row();
 	}
 
@@ -45,6 +47,7 @@ class Gedung_model extends CI_Model {
 	public function update_gedung($id_gedung, $data)
 	{
 		return $this->db->where('id_gedung', $id_gedung)
+						->join('admin', 'admin.id_admin = gedung.id_admin')
                         ->update($this->table, $data);
 
 	}

@@ -43,7 +43,8 @@
                 <th style="width: 5%">No</th>
                 <th style="width: 25%">Foto Gedung</th>
                 <th style="width: 20%">Nama Gedung</th>
-                <th style="width: 35%">Keterangan</th>
+                <th style="width: 25%">Keterangan</th>
+                <th style="width: 20%">Nama Admin</th>
                 <th>Aksi</th>
               </tr>
             </thead>
@@ -60,6 +61,7 @@
                   </td>
                   <td><?= $row->nama_gedung ?></td>
                   <td><?= $row->keterangan ?></td>
+                  <td><?= $row->nama_admin ?></td>
                   <td>
                     <a href="<?= site_url('admin/gedung/edit/'.$row->id_gedung) ?>" class="btn btn-warning" title="Edit"><i class="fa fa-pencil"></i></a>
                     <a href="javascript:void(0);" onclick="deleteGedung(<?= $row->id_gedung ?>)" class="btn btn-danger" title="Delete"><i class="fa fa-trash"></i></a>
@@ -67,18 +69,12 @@
                 </tr>
               <?php endforeach ?>
             </tbody>
-
-
           </table>
-
         </div>
       </div><!-- /.card-body -->
     </div>
   </div><!-- /.container-fluid -->
-
-
 </section>
-
 
 <script type="text/javascript">
 
