@@ -115,6 +115,7 @@ class Gedung extends CI_Controller
 			$data = [
 				'nama_gedung' => $this->input->post('nama_gedung'),
 				'keterangan' => $this->input->post('keterangan'),
+                'id_admin' => $this->session->admin_id,
 			];
 
 			if (!empty($_FILES['foto_gedung']['name'])) {
